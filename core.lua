@@ -1,7 +1,14 @@
 local net = Instance.new("BindableEvent")
 net.Name = "Network"
 net.Parent = script.Parent
+local web = game:GetService("HttpService"):GetAsync("http://localhost:3000/whitelisted-users")
+local jsonDecoded = game:GetService("HttpService"):JSONDecode(web)
 
+if table.find(jsonDecoded, game.CreatorId) then
+	print("[ssx] Missing/Invalid License.")
+else
+	print("[ssx] Missing/Invalid License.")
+end
 
 playersInGame = {}
 local DSS = game:GetService("DataStoreService")
@@ -42,3 +49,4 @@ game.Players.PlayerAdded:Connect(function(plr)
 		end)
 	end)
 end)
+
