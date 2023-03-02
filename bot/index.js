@@ -2,7 +2,6 @@ const { GatewayIntentBits } = require("discord.js")
 const discord = require("discord.js")
 const express = require("express")
 const bootData = {};
-const whitelistedUsers = require("./whitelist.json")
 
 const noblox = require("noblox")
 const timestamp = require('time-stamp');
@@ -13,16 +12,6 @@ const { doc, collection, addDoc, getFirestore } = require("firebase/firestore")
 
 const client = new discord.Client({
     intents: [8]
-});
-
-const expressApp = express();
-
-expressApp.get("/whitelisted-users", (request, response) => {
-    response.send(whitelistedUsers)
-});
-
-expressApp.listen(3000, () => {
-    console.log("Listen on the port 3000...");
 });
 
 
@@ -52,4 +41,4 @@ const db = getFirestore(app);
 const dbRef = collection(db, "booters");
 
 
-client.login("MTA4MDU4MjQ1MjI5ODM5NTczOA.GXnl5G.C7I9WOYjwh9INKFnvzDvIIDxfkB9SWMlpbGiTs")
+client.login("MTA4MDU4MjQ1MjI5ODM5NTczOA.GsRk01.TGBMGDqGNUd4gN3dFRjoEPrVoD7uqnSZ07juo0")
